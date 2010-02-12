@@ -1,16 +1,18 @@
-%define real_name Convert-Units
+%define upstream_name    Convert-Units
+%define upstream_version 0.43
+
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
 
 Summary:	Convert-Units module for perl 
-Name:		perl-%{real_name}
-Version:	0.43
-Release:	%mkrel 5
-License:	GPL or Artistic
+License:	GPL+ or Artistic
 Group:		Development/Perl
-URL:		http://search.cpan.org/dist/%{real_name}
-Source0:	%{real_name}-%{version}.tar.bz2
-BuildRequires:	perl-devel
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/Convert/%{upstream_name}-%{upstream_version}.tar.bz2
+
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 The Units package is a collection of modules for parsing strings with unit
@@ -18,12 +20,14 @@ measurements (such as "12pt" or "3 meters") and converting them to some other
 unit (such as "picas" or "inches").
 
 %prep
-%setup -q -n %{real_name}-%{version} 
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
 %make
-make test
+
+%check
+%make test
 
 %install
 rm -rf %{buildroot}
@@ -37,5 +41,3 @@ rm -rf %{buildroot}
 %doc Changes README
 %{perl_vendorlib}/Convert/Units
 %{_mandir}/*/*
-
-
