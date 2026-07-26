@@ -1,15 +1,13 @@
 %define upstream_name    Convert-Units
-%define upstream_version 0.43
-
 Name:		perl-%{upstream_name}
-Version:	%{upstream_version}
-Release:	6
+Version:	0.43
+Release:	7
 
 Summary:	Convert-Units module for perl 
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		https://metacpan.org/dist/Convert-Units
-Source0:	http://www.cpan.org/modules/by-module/Convert/%{upstream_name}-%{upstream_version}.tar.bz2
+Source0:	http://www.cpan.org/modules/by-module/Convert/%{upstream_name}-%{version}.tar.bz2
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -21,7 +19,7 @@ measurements (such as "12pt" or "3 meters") and converting them to some other
 unit (such as "picas" or "inches").
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
@@ -46,9 +44,7 @@ perl Makefile.PL INSTALLDIRS=vendor
 
 * Fri Feb 12 2010 Jérôme Quelin <jquelin@mandriva.org> 0.430.0-1mdv2011.0
 + Revision: 504939
-- rebuild using %%perl_convert_version
-
-* Fri Sep 04 2009 Thierry Vignaud <tv@mandriva.org> 0.43-5mdv2010.0
+- rebuild using %0.43 Fri Sep 04 2009 Thierry Vignaud <tv@mandriva.org> 0.43-5mdv2010.0
 + Revision: 430339
 - rebuild
 
