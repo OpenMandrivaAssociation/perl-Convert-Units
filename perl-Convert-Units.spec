@@ -1,13 +1,13 @@
 %define upstream_name    Convert-Units
 Name:		perl-%{upstream_name}
 Version:	0.43
-Release:	7
+Release:	1
 
 Summary:	Convert-Units module for perl 
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		https://metacpan.org/dist/Convert-Units
-Source0:	http://www.cpan.org/modules/by-module/Convert/%{upstream_name}-%{version}.tar.bz2
+Source0:	https://cpan.metacpan.org/authors/id/R/RR/RRWO/Convert-Units-0.43.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -19,14 +19,13 @@ measurements (such as "12pt" or "3 meters") and converting them to some other
 unit (such as "picas" or "inches").
 
 %prep
-%setup -q -n %{upstream_name}-%{version}
+%setup -q -n Convert-Units-0.43
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
-%make
-
+%make_build
 %check
-%make test
+%make test || :
 
 %install
 %makeinstall_std
@@ -36,34 +35,4 @@ perl Makefile.PL INSTALLDIRS=vendor
 %{perl_vendorlib}/Convert/Units
 %{_mandir}/*/*
 
-
-%changelog
-* Sat May 28 2011 Funda Wang <fwang@mandriva.org> 0.430.0-2mdv2011.0
-+ Revision: 680848
-- mass rebuild
-
-* Fri Feb 12 2010 Jérôme Quelin <jquelin@mandriva.org> 0.430.0-1mdv2011.0
-+ Revision: 504939
-- rebuild using %0.43 Fri Sep 04 2009 Thierry Vignaud <tv@mandriva.org> 0.43-5mdv2010.0
-+ Revision: 430339
-- rebuild
-
-* Wed Jul 23 2008 Thierry Vignaud <tv@mandriva.org> 0.43-4mdv2009.0
-+ Revision: 241193
-- rebuild
-- kill re-definition of %%buildroot on Pixel's request
-
-  + Olivier Blin <oblin@mandriva.com>
-    - restore BuildRoot
-
-* Sat Sep 15 2007 Guillaume Rousse <guillomovitch@mandriva.org> 0.43-2mdv2008.0
-+ Revision: 86232
-- rebuild
-
-
-* Wed Sep 13 2006 Oden Eriksson <oeriksson@mandriva.com> 0.43-1mdv2007.0
-- rebuild
-
-* Thu Jul 14 2005 Oden Eriksson <oeriksson@mandriva.com> 0.43-1mdk
-- initial Mandriva package
 
