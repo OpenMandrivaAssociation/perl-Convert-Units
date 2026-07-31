@@ -1,7 +1,8 @@
 %define upstream_name    Convert-Units
+%define upstream_version 0.43
 Name:		perl-%{upstream_name}
 Version:	0.43
-Release:	1
+Release:	2
 
 Summary:	Convert-Units module for perl 
 License:	GPL+ or Artistic
