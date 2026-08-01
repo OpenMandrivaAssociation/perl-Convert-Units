@@ -2,7 +2,7 @@
 %define upstream_version 0.43
 Name:		perl-%{upstream_name}
 Version:	0.43
-Release:	2
+Release:	3
 
 Summary:	Convert-Units module for perl 
 License:	GPL+ or Artistic
@@ -26,6 +26,7 @@ unit (such as "picas" or "inches").
 perl Makefile.PL INSTALLDIRS=vendor
 %make_build
 %check
+make test || :
 %make test || :
 
 %install
